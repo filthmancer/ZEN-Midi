@@ -1,0 +1,21 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.properties"
+			],
+			"folder_exclude_patterns":
+			[
+				"build-tmp"
+			],
+			"name": "MidiController",
+			"path": "../MidiControllerTest"
+		}
+	],
+	"settings":
+	{
+		"tab_size": 5
+	}
+}
