@@ -38,14 +38,14 @@ class MidiVoice
   {
     osc = _osc;
    if(aud_context == null) aud_context = new AudioContext();
-    wav_player = new WavePlayer[_osc.length];
-    gain = new Gain[_osc.length];
+    wav_player = new WavePlayer[osc.length];
+    gain = new Gain[osc.length];
 
-    freqGlide = new Glide[_osc.length];
-    oscGainGlide = new Glide[_osc.length];
+    freqGlide = new Glide[osc.length];
+    oscGainGlide = new Glide[osc.length];
 
     gainEnvelope = new Envelope(aud_context, 0.0);
-    cutoffFilter = new LPRezFilter[_osc.length];
+    cutoffFilter = new LPRezFilter[osc.length];
 
     vol_gate = new GATEBREAK(aud_context, 2, 0.8, 0, 1.0);
     gainGlide = new Glide(aud_context, 0, 50);
@@ -61,7 +61,7 @@ class MidiVoice
 
     aud_context.out.addInput(master_gain);
 
-    for (int i = 0; i < _osc.length; i++)
+    for (int i = 0; i < osc.length; i++)
     {
       freqGlide[i] = new Glide(aud_context, 0.0, 25);
       oscGainGlide[i] = new Glide(aud_context, osc[i].volume, 25);
@@ -101,6 +101,7 @@ class MidiVoice
       cutoffFilter[i].setFrequency(1 + (MUI.master_lfo.value + osc[i].lfo) * 200);
       wav_player[i].setBuffer(osc[i].buffer);
     }
+    println();
 
     if (isPlaying) {
       Play(current_freq);

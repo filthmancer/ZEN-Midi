@@ -65,8 +65,8 @@ void setup()
 
   Data = new SynthData();
 
-  vis = new WaveVisual();
-  vis.Start();
+ // vis = new WaveVisual();
+ // vis.Start();
 }
 
 void draw()
@@ -89,7 +89,7 @@ void draw()
     }
 
   MUI.Update();
-  vis.Update(); 
+ // vis.Update(); 
 
   if (allNotes.size() > 0)
   {
@@ -110,9 +110,6 @@ void draw()
   {
     voice[i].Update();
   }
-
-
-
 }
 
 
@@ -204,6 +201,7 @@ void noteOff(int channel, int pitch, int velocity)
 
 void keyPressed()
 {
+  
   if (keyPlaying) allNotes.add(new Note(55, 1.0F));
   else release(55);
   keyPlaying = !keyPlaying;

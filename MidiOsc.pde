@@ -60,31 +60,33 @@ class MidiOsc
     }
     if (MUI.EditingOSC(i))
     {
-      if (rack.GetObj("volume " + i).ValueChange())
-      {
+      //
+      //if (rack.GetObj("volume " + i).ValueChange())
+      //{
+        print(rack.GetObj("volume " + i).value, volume);
         volume = rack.GetObj("volume " + i).value;
-      }
-      if (rack.GetObj("pitch " + i).ValueChange())
-      {
+      //}
+     // if (rack.GetObj("pitch " + i).ValueChange())
+     // {
         float p = rack.GetObj("pitch " + i).value/2;
         if (p > 0) p *= rack.GetObj("pitch " + i).value + 1;
 
         pitch_init = p;
-      }
-      if (rack.GetObj("octave " + i).ValueChange())
-      {
+      //}
+     // if (rack.GetObj("octave " + i).ValueChange())
+     // {
         float oct = rack.GetObj("octave " + i).value/2;
         if (oct > 0) oct*= rack.GetObj("octave " + i).value+1;
         oct_init = oct;
-      }
-      if (rack.GetObj("wave " + i).ValueChange())
-      {
+     /// }
+     // if (rack.GetObj("wave " + i).ValueChange())
+     // {
         buffer = GetBuffer((int)(rack.GetObj("wave " + i).value));
-      }	
-      if (rack.GetObj("lfo " + i).ValueChange())
-      {
+     // }	
+     // if (rack.GetObj("lfo " + i).ValueChange())
+     // {
         lfo = (rack.GetObj("lfo " + i).value);
-      }
+     // }
     }
 
     float m_pitch = (MUI.master_pitch.value / 2);

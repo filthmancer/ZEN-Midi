@@ -22,7 +22,7 @@ public class SFrame extends PApplet
 class BeachVisual
 {
   PVector window_size = new PVector(600, 600);
-  SFrame frame;
+  //SFrame frame;
   PFrame vis;
   color back;
 
@@ -34,19 +34,19 @@ class BeachVisual
   {
     back = color(0);
     value = new float[1];
-    frame = new SFrame();
+    //frame = new SFrame();
 
     window_size = _size;
 
     vis = new PFrame(_name);
     vis.setSize((int)_size.x, (int)_size.y);
-    vis.add(frame);
+    //vis.add(frame);
     vis.show();
-    frame.init();
+    /*frame.init();
     frame.size((int)_size.x, (int)_size.y);
     frame.show();
     frame.frameRate(240);
-    frame.colorMode(HSB);
+    frame.colorMode(HSB);*/
   }
 
   public void Start()
@@ -55,7 +55,7 @@ class BeachVisual
 
   public void Update()
   {
-    frame.background(back);
+    //frame.background(back);
   }
 }
 
@@ -74,7 +74,7 @@ class WaveVisual extends BeachVisual
   public void Start()
   {
     super.Start();
-    waveImg = frame.createImage(frame.width, frame.height, HSB);
+   // waveImg = frame.createImage(frame.width, frame.height, HSB);
   }
 
   public void Update()
@@ -84,11 +84,11 @@ class WaveVisual extends BeachVisual
     float scale = 1.0F;
     colorMode(HSB);
 
-    for (int im = 0; im < waveImg.pixels.length; im++)
+  /*  for (int im = 0; im < waveImg.pixels.length; im++)
     {
       waveImg.pixels[im] = color(0);
     }
-    waveImg.loadPixels(); 
+    waveImg.loadPixels();
     for (int a = 0; a < voice.length; a++)
     {
       for (int i = 0; i < waveImg.width; i++)
@@ -111,7 +111,7 @@ class WaveVisual extends BeachVisual
     waveImg.updatePixels();
     frame.image(waveImg, 0, 0);
 
-    frame.redraw();
+    frame.redraw();*/
   }
 }
 
@@ -195,9 +195,9 @@ class ImageVisual extends BeachVisual
     if (filter_wave.factor[1] > 255) filter_wave.factor[1] = 0;
     else filter_wave.factor[1]++;
 
-    frame.image(img, 0, 0);
-    frame.text(filter_wave.factor[0], 25, 25);
-    frame.redraw();
+   // frame.image(img, 0, 0);
+   // frame.text(filter_wave.factor[0], 25, 25);
+   // frame.redraw();
   }
 
   void SetPixels(color [] c)

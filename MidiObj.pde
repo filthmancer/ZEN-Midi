@@ -388,12 +388,12 @@ class MidiList extends MidiObj
   public void SetValue(float num)
   {
     super.SetValue(num);
-    list.setIndex((int)num);
+   // list.setIndex((int)num);
   }
 
   public void SetValueUI(int num)
   {
-    list.setIndex(num);
+  //  list.setIndex(num);
   }
 
   public void CheckEvent(ControlEvent c)
